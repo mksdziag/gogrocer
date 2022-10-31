@@ -43,10 +43,8 @@ func GenerateToken(c *gin.Context) {
 		return
 	}
 
-	log.Println("tutaj jeszcze jestem 2")
 	tokenString, err := auth.GenerateJWT(user.Email, user.Username)
 	if err != nil {
-		log.Println("ale tutaj jest erorro")
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		c.Abort()
 		return
