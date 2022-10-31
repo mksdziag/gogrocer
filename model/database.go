@@ -36,7 +36,7 @@ func Database() (*gorm.DB, error) {
 		log.Fatal(err.Error())
 	}
 
-	if err = db.AutoMigrate(&Grocery{}); err != nil {
+	if err = db.AutoMigrate(&Grocery{}, &User{}); err != nil {
 		log.Println(err)
 	}
 
